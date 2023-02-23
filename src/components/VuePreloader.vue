@@ -2,7 +2,7 @@
 import { computed, onMounted, onBeforeMount, ref, watchEffect } from "vue";
 import definedProps from './props';
 
-const emit = defineEmits(['transition-is-over'])
+const emit = defineEmits(['loading-is-over', 'transition-is-over']);
 const props = defineProps(definedProps);
 
 const loadingbar = ref(null);
@@ -24,9 +24,12 @@ watchEffect(() => {
   if (percent.value < 100) {
     setTimeout(() => {
       percent.value += 1;
-      loadingbar.value.style.width = `${percent.value}%`;
+      if (loadingbar.value) {
+        loadingbar.value.style.width = `${percent.value}%`;
+      }
     }, props.loadingSpeed);
   } else {
+    loadingIsOver();
     transitionIsOver();
   }
 });
@@ -38,6 +41,10 @@ onBeforeMount(() => {
 onMounted(() => {
   percent.value = percent.value += 1
 });
+
+function loadingIsOver() {
+  emit('loading-is-over');
+}
 
 function setOverflowAuto() {
   document.body.style.overflow = 'auto'
