@@ -56,7 +56,7 @@ function transitionIsOver() {
 </script>
 
 <template>
-	<div
+  <div
     :class="$style.preloader"
     :style="[
       preloaderBackgroundColor,
