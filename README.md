@@ -8,7 +8,7 @@
 <br />
 <div align="center">
   <a href="https://vue-preloader.com" target="_blank">
-    <img src="images/logo.png" alt="Logo" width="233" height="93">
+    <img src="images/logo.png" alt="Logo" width="161" height="210">
   </a>
 
   <h3 align="center">Vue Preloader</h3>
@@ -69,7 +69,13 @@ To use vue-preloader in your Vue or Nuxt.js project, simply install it with npm 
 
 ### Vite & Nuxt3
 
-vue-preloader can easily be integrated into the layout of a Nuxt.js project or in a similar way in a Vite project. To integrate vue-preloader into a Nuxt.js project, you can simply add the tag to your project's layout file.
+vue-preloader can easily be integrated into the layout of a Nuxt.js project or in a similar way in a Vite project. Firstly, you will need to register the the component inside script tag with setup:
+
+```js
+import { VuePreloader } from 'vue-preloader';
+import '../node_modules/vue-preloader/dist/style.css'
+```
+Than you can simply add the vue-preloader tag to your projects layout file:
 
 layout/default.vue file in nuxt3:
 
@@ -81,19 +87,58 @@ layout/default.vue file in nuxt3:
   </TemplatesPage>
   <TemplatesFooter />
   <VuePreloader
-    :background-color="preloaderProps.backgroundColor"
-    :color="preloaderProps.color"
-    :loading-speed="preloaderProps.loadingSpeed"
-    :transition-speed="preloaderProps.transitionSpeed"
-    @transition-is-over="listenForEvent"
+    background-color="#091a28"
+    color="#ffffff"
+    :loading-speed="25"
+    :transition-speed="1400"
+    @transition-is-over="transitionIsOver"
+    @loading-is-over="loadingIsOver"
   </VuePreloader>
 </div>
 ```
-And register the component inside script tag with setup:
+### Slot & Slot Props
 
+The vue-preloader component comes with a default slot that allows you to customize the content displayed within the preloader element. You can add any HTML or Vue.js template code within the slot to customize the look and feel of the preloader. This makes the component highly customizable and adaptable to any project's needs.
+
+```html
+<vue-preloader
+  background-color="#091a28"
+  color="#ffffff"
+  loading-speed="25"
+  transition-speed="1400"
+>
+  <span>You are awesome animation goes here</span>
+</vue-preloader>
+```
+
+Color and percent as slotprops values that come directly from the component, together with the loading-is-over event can create powerful custom animations.
+
+```html
+<vue-preloader
+  background-color="#091a28"
+  color="#ffffff"
+  :loading-speed="25"
+  :transition-speed="1400"
+  @transition-is-over="transitionIsOver"
+  @loading-is-over="showAnimation = false"
+>
+  <template v-slot="{ percent, color }">
+    <transition name="loading-animation" mode="in-out">
+      <span
+        v-if="showAnimation"
+        :style="{ color }"
+      >
+        {{ percent }}
+      </span>
+    </transition>
+  </template>
+</vue-preloader>
+```
 ```js
-import { VuePreloader } from 'vue-preloader';
-import '../node_modules/vue-preloader/dist/style.css'
+import { VuePreloader } from "./components/";
+import { ref } from 'vue';
+
+const showAnimation = ref(true)
 ```
 ### Available props
 
@@ -162,6 +207,6 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-url]: https://github.com/schnapsterdog/vue-preloader/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://mk.linkedin.com/in/oliver-trajceski-8a28b070
-[product-screenshot]: https://app.imgforce.com/images/user/m38_1676913481_vue-preloader-seo.png
+[product-screenshot]: https://app.imgforce.com/images/user/bDm_1677186441_vue-preloader-seo.png
 [Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
 [Vue-url]: https://vuejs.org/
