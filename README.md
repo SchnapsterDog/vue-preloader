@@ -93,7 +93,7 @@ layout/default.vue file in nuxt3:
     :transition-speed="1400"
     @transition-is-over="transitionIsOver"
     @loading-is-over="loadingIsOver"
-  </VuePreloader>
+  ></VuePreloader>
 </div>
 ```
 ### Slot & Slot Props
@@ -101,20 +101,20 @@ layout/default.vue file in nuxt3:
 The vue-preloader component comes with a default slot that allows you to customize the content displayed within the preloader element. You can add any HTML or Vue.js template code within the slot to customize the look and feel of the preloader. This makes the component highly customizable and adaptable to any project's needs.
 
 ```html
-<vue-preloader
+<VuePreloader
   background-color="#091a28"
   color="#ffffff"
   loading-speed="25"
   transition-speed="1400"
 >
   <span>You are awesome animation goes here</span>
-</vue-preloader>
+</VuePreloader>
 ```
 
 Color and percent as slotprops values that come directly from the component, together with the loading-is-over event can create powerful custom animations.
 
 ```html
-<vue-preloader
+<VuePreloader
   background-color="#091a28"
   color="#ffffff"
   :loading-speed="25"
@@ -132,7 +132,7 @@ Color and percent as slotprops values that come directly from the component, tog
       </span>
     </transition>
   </template>
-</vue-preloader>
+</VuePreloader>
 ```
 ```js
 import { VuePreloader } from "./components/";
