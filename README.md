@@ -135,7 +135,8 @@ Color and percent as slotprops values that come directly from the component, tog
 </VuePreloader>
 ```
 ```js
-import { VuePreloader } from "./components/";
+import { VuePreloader } from 'vue-preloader';
+import '../node_modules/vue-preloader/dist/style.css'
 import { ref } from 'vue';
 
 const showAnimation = ref(true)
