@@ -104,6 +104,7 @@ import '../node_modules/vue-preloader/dist/style.css'
 |**loading-speed**|`Number`|`15`|The loading-speed prop is used to adjust the speed of the loading bar. You can pass in a number value that represents the animation speed in milliseconds. A lower value will result in a faster animation, while a higher value will slow it down. This prop can take an integer value.
 |**transition-speed**|`Number`|`1400`|The transition-speed prop is used to adjust the speed of the transition between the preloader and the main content of your application. You can pass in a number value that represents the transition speed in milliseconds. A lower value will result in a faster transition, while a higher value will slow it down.
 |**transition-is-over**|`Event`|`/`|The event transition-is-over is fired when the transition is over and the component is no longer available in the DOM. It can be useful to create logic when the vue-loader should be re-rendered.
+|**loading-is-over**|`Event`|`/`|The event loading-is-over is fired when the loading process is complete. This event can be useful to trigger other actions that depend on the completion of the loading process, such as displaying a success message or enabling certain user interactions.
 
 ## Vue2 Version
 
