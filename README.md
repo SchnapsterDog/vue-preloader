@@ -104,8 +104,8 @@ The vue-preloader component comes with a default slot that allows you to customi
 <VuePreloader
   background-color="#091a28"
   color="#ffffff"
-  loading-speed="25"
-  transition-speed="1400"
+  :loading-speed="25"
+  :transition-speed="1400"
 >
   <span>You are awesome animation goes here</span>
 </VuePreloader>
