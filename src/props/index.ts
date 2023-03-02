@@ -16,6 +16,10 @@ const definedProps = {
   transitionSpeed: {
     type: Number as PropType<number>,
     default: 1400
+  },
+  transitionType: {
+    type: String as PropType<string>,
+    default: 'fade-left'
   }
 };
 

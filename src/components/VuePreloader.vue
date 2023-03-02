@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, onBeforeMount, ref, watchEffect } from "vue";
-import definedProps from './props';
+import { transitionMap } from '../utils/transitionmap'
+import definedProps from '../props';
 
 const emit = defineEmits(['loading-is-over', 'transition-is-over']);
 const props = defineProps(definedProps);
@@ -12,13 +13,16 @@ const preloaderBackgroundColor = computed(() => {
   return { backgroundColor: props.backgroundColor }
 });
 
-const preloaderTransition = computed(() => {
+const preloaderTransitionSpeed = computed(() => {
   return { transition: `all ${props.transitionSpeed}ms ease-in-out` }
 });
 
-const preloaderWidth = computed(
-  () => percent.value >= 100 ? { width: '0%' } : ''
-);
+const preloaderTransitionType = computed(() => {
+  if (percent.value >= 100) {
+    return transitionMap[props.transitionType] || transitionMap.default
+  }
+  return
+})
 
 watchEffect(() => {
   if (percent.value < 100) {
@@ -67,8 +71,8 @@ function transitionIsOver() {
     :class="$style.preloader"
     :style="[
       preloaderBackgroundColor,
-      preloaderTransition,
-      preloaderWidth
+      preloaderTransitionSpeed,
+      preloaderTransitionType
     ]"
   >
     <slot v-bind="{ color, percent }">
