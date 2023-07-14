@@ -39,7 +39,7 @@ watchEffect(() => {
 });
 
 onBeforeMount(() => {
-  if (props.overflowActve) setOverflowHidden()
+  if (props.overflowActive) setOverflowHidden()
 });
 
 onMounted(() => {
@@ -61,7 +61,7 @@ function setOverflowHidden() {
 function transitionIsOver() {
   setTimeout(() => {
     emit('transition-is-over')
-    if (props.overflowActve) setOverflowAuto()
+    if (props.overflowActive) setOverflowAuto()
   }, props.transitionSpeed)
 }
 </script>
