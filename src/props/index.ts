@@ -13,7 +13,7 @@ const definedProps = {
     type: Number as PropType<number>,
     default: 15
   },
-  overflowActve: {
+  overflowActive: {
     type: Boolean,
     default: true
   },

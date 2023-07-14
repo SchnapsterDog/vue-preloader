@@ -7,7 +7,7 @@ const showAnimation = ref(true)
 
 <template>
   <div>
-    <vue-preloader @loading-is-over="showAnimation = false" transition-type="fade-up">
+    <vue-preloader @loading-is-over="showAnimation = false" :overflowActive="false" transition-type="fade-up">
       <template v-slot="{ color, percent }">
         <transition name="loading-animation" mode="in-out">
           <span v-if="showAnimation" :style="{ color }">{{ percent }} %</span>
