@@ -73,7 +73,7 @@ vue-preloader can easily be integrated into the layout of a Nuxt.js project or i
 
 ```js
 import { VuePreloader } from 'vue-preloader';
-import '@/node_modules/vue-preloader/dist/style.css'
+import '../node_modules/vue-preloader/dist/style.css'
 ```
 Than you can simply add the vue-preloader tag to your projects layout file:
 
@@ -139,7 +139,7 @@ Color and percent as slotprops values that come directly from the component, tog
 ```
 ```js
 import { VuePreloader } from 'vue-preloader';
-import '@/node_modules/vue-preloader/dist/style.css'
+import '../node_modules/vue-preloader/dist/style.css'
 import { ref } from 'vue';
 
 const showAnimation = ref(true)
