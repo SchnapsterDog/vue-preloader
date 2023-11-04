@@ -1,7 +1,7 @@
 {
   "name": "vue-preloader",
   "description": "Vue-Preloader is a versatile and easy-to-use Vue.js component that allows you to add loading animations to your Vue.js or Nuxt.js projects. It is compatible with both Vue 2 and Vue 3.",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "private": false,
   "homepage": "https://vue-preloader.com/",
   "author": {
@@ -38,13 +38,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.45"
+    "vue": "^3.3.4"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.0.0",
-    "vite": "^4.0.0"
+    "@vitejs/plugin-vue": "^4.2.3",
+    "vite": "^4.4.5"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   }
 }
