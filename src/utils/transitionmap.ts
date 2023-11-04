@@ -1,14 +1,14 @@
-import {
-  TRANSITION_FADE_LEFT,
-  TRANSITION_FADE_RIGHT,
-  TRANSITION_FADE_UP,
-  TRANSITION_FADE_DOWN
-} from '../constants';
-
-export const transitionMap = {
-  [TRANSITION_FADE_LEFT]: { transform: 'translate(-100%, 0)' },
-  [TRANSITION_FADE_RIGHT]: { transform: 'translate(100%, 0)' },
-  [TRANSITION_FADE_UP]: { transform: 'translate(0, -100%)' },
-  [TRANSITION_FADE_DOWN]: { transform: 'translate(0, 100%)' },
-  default: { transform: 'transform(-100%, 0)' }
+enum Transition {
+  FADE_LEFT = 'fade-left',
+  FADE_RIGHT = 'fade-right',
+  FADE_UP = 'fade-up',
+  FADE_DOWN = 'fade-down',
 }
+
+export const transitionMap: Record<Transition | 'default', { transform: string }> = {
+  [Transition.FADE_LEFT]: { transform: 'translate(-100%, 0)' },
+  [Transition.FADE_RIGHT]: { transform: 'translate(100%, 0)' },
+  [Transition.FADE_UP]: { transform: 'translate(0, -100%)' },
+  [Transition.FADE_DOWN]: { transform: 'translate(0, 100%)' },
+  default: { transform: 'transform(-100%, 0)' },
+};
